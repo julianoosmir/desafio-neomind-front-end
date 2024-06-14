@@ -1,0 +1,36 @@
+<div id="wapper">
+  <div class="panel">
+    <a class="btn btn-primary btn-text-right" [routerLink]="['/cadastro-fornecedor']">
+      <i class="bi bi-plus-circle"></i>
+    </a>
+    <div>
+      <table class="table table-wrapper">
+        <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">CNPJ</th>
+          <th scope="col">Comment</th>
+          <th scope="col">Ação</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let fornecedor of fornecedores">
+          <th scope="row">{{ fornecedor.id }}</th>
+          <td> {{ fornecedor.name }}</td>
+          <td> {{ fornecedor.email }}</td>
+          <td> {{ fornecedor.cnpj }}</td>
+          <td> {{ fornecedor.comment }}</td>
+          <td>
+            <button [routerLink]="['/cadastro-fornecedor',fornecedor.id]"> alterar </button>
+            <button (click)="deletar(fornecedor.id)"> deletar  </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+

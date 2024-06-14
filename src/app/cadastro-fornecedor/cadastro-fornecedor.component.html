@@ -1,0 +1,42 @@
+<div id="wapper">
+  <div class="panel">
+    <h2> Cadastro <span> Fornecedor</span></h2>
+    <br />
+    <form [formGroup]="fonecedorForm" action="#">
+      <div>
+        <label>Nome : </label>
+        <br />
+        <input class="form-control" name="nome" formControlName="name" >
+      </div>
+      <br />
+      <div>
+        <label>CNPJ : </label>
+        <br />
+        <input class="form-control" name="cnpj" id="cnpj" formControlName="cnpj" mask="00.000.000/0000-00">
+        <div *ngIf="fonecedorForm?.get('cnpj')?.invalid && fonecedorForm?.get('cnpj')?.touched" class="text-danger">
+          Please enter a valid cnpj.
+        </div>
+      </div>
+      <br />
+      <div>
+        <label for="email">Email : </label>
+        <br />
+        <input class="form-control" name="email" id="email" formControlName="email"
+               aria-describedby="emailHelp" placeholder="Enter username">
+
+        <div *ngIf="fonecedorForm?.get('email')?.invalid && fonecedorForm?.get('email')?.touched" class="text-danger">
+          Please enter a valid email.
+        </div>
+      </div>
+      <br />
+      <div class="form-group">
+        <label> Comment : </label>
+        <br />
+        <input class="form-control" name="comment" formControlName="comment" id="comment">
+      </div>
+      <br />
+      <button type="submit" (click)="salvar()" class="button btn-text-right"> Salvar </button>
+    </form>
+
+  </div>
+</div>
