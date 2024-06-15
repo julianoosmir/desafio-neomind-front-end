@@ -23,8 +23,8 @@
           <td> {{ fornecedor.cnpj }}</td>
           <td> {{ fornecedor.comment }}</td>
           <td>
-            <button [routerLink]="['/cadastro-fornecedor',fornecedor.id]"> alterar </button>
-            <button (click)="deletar(fornecedor.id)"> deletar  </button>
+            <button [routerLink]="['/cadastro-fornecedor',fornecedor.id]" class="btn btn-warning"> alterar </button>
+            <button (click)="deletar(fornecedor.id)" class="btn btn-danger"> deletar  </button>
           </td>
         </tr>
         </tbody>

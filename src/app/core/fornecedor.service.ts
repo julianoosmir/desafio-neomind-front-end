@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {IFornecedor} from "../interfaces/IFornecedor";
-import {URL_API_FORNECEDOR, URL_API_FORNECEDOR_TODOS} from "../contants/api";
+import {URL_API_FORNECEDOR} from "../contants/api";
 import {FornecedorModel} from "../models/FornecedorModel";
 
 @Injectable({
@@ -13,7 +13,7 @@ export class FornecedorService {
   constructor(private http: HttpClient) { }
 
   listar(): Observable<IFornecedor[]>{
-    return this.http.get<IFornecedor[]>(URL_API_FORNECEDOR_TODOS);
+    return this.http.get<IFornecedor[]>(URL_API_FORNECEDOR);
   }
   getById(id: number): Observable<IFornecedor> {
     return this.http.get<IFornecedor>(URL_API_FORNECEDOR + '/' + id);
