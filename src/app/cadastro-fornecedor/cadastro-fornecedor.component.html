@@ -22,7 +22,7 @@
         <label for="email">Email : </label>
         <br />
         <input class="form-control" name="email" id="email" formControlName="email"
-               aria-describedby="emailHelp" placeholder="Enter username">
+               aria-describedby="emailHelp">
 
         <div *ngIf="fonecedorForm?.get('email')?.invalid && fonecedorForm?.get('email')?.touched" class="text-danger">
           Please enter a valid email.
