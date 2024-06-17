@@ -1,8 +1,9 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
 import {FornecedorService} from "../core/fornecedor.service";
 import {FornecedorModel} from "../models/FornecedorModel";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, Validators} from "@angular/forms";
+import {AlertService} from "../core/alert.service";
 
 @Component({
   selector: 'app-cadastro-fornecedor',
@@ -14,6 +15,7 @@ export class CadastroFornecedorComponent {
   id: number;
 
   constructor(private _fornecedorService: FornecedorService,
+              private alertService: AlertService,
               private formBuilder: FormBuilder,
               private router: Router,
               private activatedRoute: ActivatedRoute) {
@@ -40,15 +42,27 @@ export class CadastroFornecedorComponent {
 
       if (this.id && this.id !== 0) {
         fornecedorNovo.id = this.id;
-        this._fornecedorService.alterar(fornecedorNovo).subscribe(() => {
-          this.router.navigate(['']);
+        this._fornecedorService.alterar(fornecedorNovo).subscribe({
+          next: () => {
+            this.router.navigate(['']);
+            this.alertService.showAlertSuccess("alteração salva");
+          }, error: () => {
+            this.alertService.showAlertDanger("erro ao salvar");
+          }
         })
       } else {
-        this._fornecedorService.salvar(fornecedorNovo).subscribe(() => {
-          this.router.navigate(['']);
+        this._fornecedorService.salvar(fornecedorNovo).subscribe({
+          next: () => {
+            this.router.navigate(['']);
+            this.alertService.showAlertSuccess("cadastro salvo");
+          }, error: () => {
+            this.alertService.showAlertDanger("erro ao salvar");
+          }
         })
       }
 
+    } else {
+      this.alertService.showAlertDanger("preencha todos os campos corretamente");
     }
 
   }

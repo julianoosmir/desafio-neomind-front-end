@@ -9,12 +9,15 @@ import {HttpClientModule} from "@angular/common/http";
 import { CadastroFornecedorComponent } from './cadastro-fornecedor/cadastro-fornecedor.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgxMaskDirective, provideNgxMask} from "ngx-mask";
+import { AlertComponent } from './alert/alert.component';
+import {ModalModule} from "ngx-bootstrap/modal";
 
 @NgModule({
   declarations: [
     AppComponent,
     FornecedorComponent,
-    CadastroFornecedorComponent
+    CadastroFornecedorComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +27,7 @@ import {NgxMaskDirective, provideNgxMask} from "ngx-mask";
     FormsModule,
     ReactiveFormsModule,
     NgxMaskDirective,
+    ModalModule.forRoot(),
   ],
   providers: [provideNgxMask({ /* opções de cfg */ })],
   bootstrap: [AppComponent]
