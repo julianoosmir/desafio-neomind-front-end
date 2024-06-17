@@ -14,7 +14,7 @@
         <br />
         <input class="form-control" name="cnpj" id="cnpj" formControlName="cnpj" mask="00.000.000/0000-00">
         <div *ngIf="fonecedorForm?.get('cnpj')?.invalid && fonecedorForm?.get('cnpj')?.touched" class="text-danger">
-          Please enter a valid cnpj.
+          Por favor insira um cnpj válido.
         </div>
       </div>
       <br />
@@ -25,7 +25,7 @@
                aria-describedby="emailHelp">
 
         <div *ngIf="fonecedorForm?.get('email')?.invalid && fonecedorForm?.get('email')?.touched" class="text-danger">
-          Please enter a valid email.
+          Por favor digite um email válido.
         </div>
       </div>
       <br />
